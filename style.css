@@ -20,9 +20,10 @@ body{
 .img-description{
     margin-top: auto;
     margin-bottom: 10px;
-    color: rgb(238, 234, 234);
-    font-weight: 300;
-    font-size: 14px;
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+    font-size: 18px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .form{

@@ -19,45 +19,68 @@
         <div class="form-info">
             <h1>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams. <br>Sign Up now to get started. <br><br> You know you want to</h1>
         </div>
-        <form id="signup-form" action="#">
+        <form id="signup-form" action="#" method="GET">
             <h1>Let's Do This!</h1>
             <div class="inputs">
                 <div class="first-name">
                     <label for="first-name" class="form-label">First Name</label>
-                    <input type="text" id="first-name" class="form-input" required>
+                    <input type="text" id="first-name" name="first-name" class="form-input" minlength="3" required>
                 </div>
                 <div class="last-name">
                     <label for="last-name" class="form-label">Last Name</label>
-                    <input type="text" id="last-name" class="form-input" required>    
+                    <input type="text" id="last-name" name="last-name" class="form-input" required>    
                 </div>
             </div>
             <div class="inputs">
                 <div class="email">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" id="email" class="form-input" required>
+                    <input type="email" id="email" name="email" class="form-input" required>
                 </div>
                 <div class="phone-number">
                     <label for="telephone" class="form-label">Phone Number</label>
-                    <input type="tel" id="telephone" class="form-input" required>
+                    <input type="tel" id="telephone" name="telephone" class="form-input" required
+                    pattern="\d{10}" minlength="10" maxlength="10" 
+                    title="Phone number must be exactly 10 digits" required>>
                 </div>
             </div>
             <div class="inputs">
                 <div class="password">
                     <label for="pwd" class="form-label">Password</label>
-                    <input type="password" name="pwd" id="pwd" class="form-input" required>
-                    <p id="pwd-error-message" class="error-message">Passwords do not match!</p>
+                    <input type="password" name="pwd" id="pwd" class="form-input" required
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
+                    title="Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.">
                 </div>
                 <div class="cnf-password">
-                    <label for="pwd" class="form-label">Confirm Password</label>
-                    <input type="password" name="pwd" id="pwd" class="form-input" required>
-                    <p id="pwd-error-message" class="error-message">Passwords do not match!</p>
+                    <label for="cnf-pwd" class="form-label">Confirm Password</label>
+                    <input type="password" id="cnf-pwd" class="form-input" required>
                 </div>
             </div>
+            <p id="pwd-error-message" class="error-message">Passwords do not match!</p>
             <div class="form-end">
                 <button type="submit" class="btn">Sign Up</button>
                 <p class="form-para">Already have an account? <a href="login.html" class="form-link">Login</a></p>
             </div>
         </form>
     </div>
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+            var pwd = document.getElementById('pwd').value;
+            var cnfPwd = document.getElementById('cnf-pwd').value;
+            var pwdErrorMessage = document.getElementById('pwd-error-message');
+            var pwdInput = document.getElementById('pwd');
+            var cnfPwdInput = document.getElementById('cnf-pwd');
+
+            if (pwd !== cnfPwd) {
+                event.preventDefault();
+                pwdInput.classList.add('error-border');
+                cnfPwdInput.classList.add('error-border');
+                pwdErrorMessage.classList.add('visible');
+            } else {
+                pwdInput.classList.remove('error-border');
+                cnfPwdInput.classList.remove('error-border');
+                pwdErrorMessage.classList.remove('visible');
+            }
+        });
+    </script>
 </body>
 </html>
