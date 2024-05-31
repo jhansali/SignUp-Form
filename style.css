@@ -1,0 +1,26 @@
+body{
+    font-family: "Josefin Sans", sans-serif;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+}
+
+.img{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    background: url(./images/mountains.jpeg) no-repeat center;
+    background-size: cover;
+    align-content: center;
+    justify-content: center;
+}
+
+.img-description{
+    margin-top: auto;
+    margin-bottom: 10px;
+    color: rgb(238, 234, 234);
+    font-weight: 300;
+    font-size: 14px;
+}
