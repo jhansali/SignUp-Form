@@ -7,9 +7,36 @@ body{
     height: 100vh;
 }
 
-.img{
-    display: flex;
+.img-container {
+    position: relative;
     width: 50%;
+    height: 100%;
+}
+
+.logo {
+    position: absolute;
+    top: 12%;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.618);
+}
+
+.img-photo {
+    position: absolute;
+    top: 12%;
+    right: 40%;
+    width: 100px;
+    height: auto;
+    z-index: 1;
+}
+
+.img {
+    display: flex;
+    width: 100%;
     height: 100%;
     background: url(./images/mountains.jpeg) no-repeat center;
     background-size: cover;
@@ -17,7 +44,7 @@ body{
     justify-content: center;
 }
 
-.img-description{
+.img-description {
     margin-top: auto;
     margin-bottom: 10px;
     color: rgb(255, 255, 255);
